@@ -16,56 +16,38 @@ namespace Module4_2_Homework
 
 2. Calculate square area");
 
-            string menu = Console.ReadLine();
-            switch (menu)
+            string menuOption = Console.ReadLine();
+            switch (menuOption)
             {
-                #region circle
                 case "1":
-                case "1.":
-                    Console.WriteLine($"1.1 Input should be radius");
-                    string R = Console.ReadLine();
-                    double radius = 0;
-                    if (double.TryParse(R, out radius) && (radius > 0))
-                    {
-                        Console.WriteLine($"Circle area is " + CircleArea(radius));
-                    }
-                    else
-                    {
-                        Console.WriteLine("It is not a valid input!");
-                    }
+                    Circle();
                     break;
-                #endregion
 
-                #region square
                 case "2":
-                case "2.":
-                    Console.WriteLine($"2.1 Input should be side length");
-                    string length = Console.ReadLine();
-                    double sideLength = 0;
-                    if (double.TryParse(length, out sideLength) && (sideLength > 0))
-                    {
-                        Console.WriteLine($"Square area is " + SquareArea(sideLength));
-                    }
-                    else
-                    {
-                        Console.WriteLine("It is not a valid input!");
-                    }
+                    Square();
                     break;
                 default:
                     Console.WriteLine("It is not a valid input!");
                     break;
-                    #endregion
             }
         }
 
-        static double CircleArea(double number)
+        static void Circle()
         {
-            return Math.PI * Math.Pow(number, 2);
+            Console.WriteLine($"1.1 Input should be radius");
+            double radius = Convert.ToDouble(Console.ReadLine());
+            double result = 0;
+            result = Math.PI * Math.Pow(radius, 2);
+            Console.WriteLine("Circle area is {0}", result);
         }
 
-        static double SquareArea(double number)
+        static void Square()
         {
-            return Math.Pow(number, 2);
+            Console.WriteLine("2.1 Input should be side length");
+            double length = Convert.ToDouble(Console.ReadLine());
+            double result = 0;
+            result = Math.Pow(length, 2);
+            Console.WriteLine("Square area is {0}", result);
         }
     }
 }
